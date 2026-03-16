@@ -25,26 +25,28 @@ export default function Hero() {
       className="relative min-h-screen flex items-center overflow-hidden bg-[#050505]"
       id="hero"
     >
-      {/* Background image collage */}
-      <div className="absolute inset-0 grid grid-cols-3 grid-rows-2 opacity-30">
-        {[1, 5, 10, 15, 20, 25].map((n, i) => (
+      {/* Background image collage — opacity raised, grayscale removed */}
+      <div className="absolute inset-0 grid grid-cols-3 grid-rows-2 opacity-70">
+        {[1, 5, 10, 15, 20, 25].map((n) => (
           <div key={n} className="overflow-hidden relative">
             <img
               src={`/images/img${n}.jpg`}
               alt=""
               className="w-full h-full object-cover"
-              style={{
-                filter: 'grayscale(80%) contrast(1.2)',
-              }}
+              style={{ filter: 'grayscale(20%) contrast(1.05)' }}
             />
-            <div className="absolute inset-0 bg-gradient-to-br from-black/60 to-transparent" />
+            {/* Much lighter per-cell overlay so images stay bright */}
+            <div className="absolute inset-0 bg-gradient-to-br from-black/20 to-transparent" />
           </div>
         ))}
       </div>
 
+      {/* Single dark vignette over the whole collage so text stays readable */}
+      <div className="absolute inset-0 bg-gradient-to-r from-black/75 via-black/40 to-black/20 pointer-events-none" />
+
       {/* Red diagonal accent */}
       <div className="absolute top-0 right-0 w-1/3 h-full bg-gradient-to-l from-brand-red/20 to-transparent pointer-events-none" />
-      
+
       {/* Left red stripe */}
       <div className="absolute left-0 top-0 w-1 h-full bg-brand-red" />
 
@@ -52,7 +54,8 @@ export default function Hero() {
       <div
         className="absolute inset-0 opacity-5"
         style={{
-          backgroundImage: 'linear-gradient(#fff 1px, transparent 1px), linear-gradient(90deg, #fff 1px, transparent 1px)',
+          backgroundImage:
+            'linear-gradient(#fff 1px, transparent 1px), linear-gradient(90deg, #fff 1px, transparent 1px)',
           backgroundSize: '60px 60px',
         }}
       />
@@ -78,7 +81,8 @@ export default function Hero() {
 
           {/* Tagline */}
           <p data-reveal className="font-body font-300 text-lg md:text-xl text-white/60 max-w-xl mb-10 leading-relaxed">
-            Uganda's trusted source for construction support services, engineering tools, safety equipment, and building materials.
+            Uganda's trusted source for construction support services, engineering tools, safety
+            equipment, and building materials.
           </p>
 
           {/* CTA buttons */}
@@ -86,7 +90,13 @@ export default function Hero() {
             <a href="#services" className="btn-primary">
               <span>Our Services</span>
               <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                <path
+                  d="M3 8h10M9 4l4 4-4 4"
+                  stroke="currentColor"
+                  strokeWidth="1.5"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
               </svg>
             </a>
             <a href="#contact" className="btn-outline">
