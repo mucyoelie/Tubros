@@ -1,25 +1,26 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect } from 'react';
+import { Link, useLocation } from 'react-router-dom';
 
 const navLinks = [
-  { label: 'About', href: '#about' },
-  { label: 'Services', href: '#services' },
-  { label: 'Products', href: '#products' },
-  { label: 'Gallery', href: '#gallery' },
-  { label: 'Contact', href: '#contact' },
-]
+  { label: 'About', to: '/about' },
+  { label: 'Services', to: '/services' },
+  { label: 'Products', to: '/products' },
+  { label: 'Gallery', to: '/gallery' },
+  { label: 'Contact', to: '/contact' },
+];
 
 export default function Navbar() {
-  const [scrolled, setScrolled] = useState(false)
-  const [menuOpen, setMenuOpen] = useState(false)
-  const [active, setActive] = useState('')
+  const [scrolled, setScrolled] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
+  const location = useLocation();
 
   useEffect(() => {
     const onScroll = () => {
-      setScrolled(window.scrollY > 50)
-    }
-    window.addEventListener('scroll', onScroll)
-    return () => window.removeEventListener('scroll', onScroll)
-  }, [])
+      setScrolled(window.scrollY > 50);
+    };
+    window.addEventListener('scroll', onScroll);
+    return () => window.removeEventListener('scroll', onScroll);
+  }, []);
 
   return (
     <nav
@@ -32,47 +33,43 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
-         <a href="#" className="flex items-center gap-3 group">
-  {/* Logo container */}
-  <div className="relative w-12 h-12 rounded-full overflow-hidden border-2 border-brand-red shadow-lg">
-    <img
-      src="/images/img50.jpg" // your logo image
-      alt="Tubros Logo"
-      className="w-full h-full object-cover"
-    />
-  </div>
-
-  {/* Logo text */}
-  <div className="flex flex-col">
-    <div className="font-display font-900 text-black text-xl leading-none uppercase tracking-tight">
-      Tubros
-    </div>
-    <div className="font-body text-[10px] text-brand-red uppercase tracking-[0.2em] leading-none">
-      Hardware Co. Ltd
-    </div>
-  </div>
-</a>
+          <Link to="/" className="flex items-center gap-3 group">
+            <div className="relative w-12 h-12 rounded-full overflow-hidden border-2 border-brand-red shadow-lg">
+              <img
+                src="/images/img50.jpg"
+                alt="Tubros Logo"
+                className="w-full h-full object-cover"
+              />
+            </div>
+            <div className="flex flex-col">
+              <div className="font-display font-900 text-black text-xl leading-none uppercase tracking-tight">
+                Tubros
+              </div>
+              <div className="font-body text-[10px] text-brand-red uppercase tracking-[0.2em] leading-none">
+                Hardware Co. Ltd
+              </div>
+            </div>
+          </Link>
 
           {/* Desktop Nav */}
           <div className="hidden lg:flex items-center gap-10">
             {navLinks.map((link) => (
-              <a
-                key={link.href}
-                href={link.href}
+              <Link
+                key={link.to}
+                to={link.to}
                 className={`nav-link font-display font-700 text-sm uppercase tracking-widest ${
-                  active === link.href ? 'text-brand-red' : 'text-black/70'
+                  location.pathname === link.to ? 'text-brand-red' : 'text-black/70'
                 } hover:text-brand-red transition-colors`}
-                onClick={() => setActive(link.href)}
               >
                 {link.label}
-              </a>
+              </Link>
             ))}
-            <a
-              href="#contact"
+            <Link
+              to="/contact"
               className="font-display font-700 text-sm uppercase tracking-widest bg-brand-red text-white px-6 py-2.5 hover:bg-brand-orange transition-colors"
             >
               Get Quote
-            </a>
+            </Link>
           </div>
 
           {/* Mobile Menu Button */}
@@ -81,9 +78,21 @@ export default function Navbar() {
             onClick={() => setMenuOpen(!menuOpen)}
             aria-label="Toggle menu"
           >
-            <span className={`block w-6 h-0.5 bg-black transition-all duration-300 ${menuOpen ? 'rotate-45 translate-y-2' : ''}`} />
-            <span className={`block w-6 h-0.5 bg-black transition-all duration-300 ${menuOpen ? 'opacity-0' : ''}`} />
-            <span className={`block w-6 h-0.5 bg-black transition-all duration-300 ${menuOpen ? '-rotate-45 -translate-y-2' : ''}`} />
+            <span
+              className={`block w-6 h-0.5 bg-black transition-all duration-300 ${
+                menuOpen ? 'rotate-45 translate-y-2' : ''
+              }`}
+            />
+            <span
+              className={`block w-6 h-0.5 bg-black transition-all duration-300 ${
+                menuOpen ? 'opacity-0' : ''
+              }`}
+            />
+            <span
+              className={`block w-6 h-0.5 bg-black transition-all duration-300 ${
+                menuOpen ? '-rotate-45 -translate-y-2' : ''
+              }`}
+            />
           </button>
         </div>
       </div>
@@ -96,24 +105,24 @@ export default function Navbar() {
       >
         <div className="px-6 py-4 flex flex-col gap-4">
           {navLinks.map((link) => (
-            <a
-              key={link.href}
-              href={link.href}
+            <Link
+              key={link.to}
+              to={link.to}
               className="font-display font-700 text-lg uppercase tracking-widest text-black/70 hover:text-brand-red"
               onClick={() => setMenuOpen(false)}
             >
               {link.label}
-            </a>
+            </Link>
           ))}
-          <a
-            href="#contact"
+          <Link
+            to="/contact"
             className="font-display font-700 text-sm uppercase tracking-widest bg-brand-red text-white px-6 py-3 text-center hover:bg-brand-orange transition-colors"
             onClick={() => setMenuOpen(false)}
           >
             Get Quote
-          </a>
+          </Link>
         </div>
       </div>
     </nav>
-  )
+  );
 }

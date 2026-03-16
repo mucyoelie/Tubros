@@ -6,8 +6,7 @@ const values = [
   { icon: '💡', title: 'Innovation', desc: 'Latest technology and cutting-edge solutions' },
   { icon: '★', title: 'Customer Satisfaction', desc: 'Your success is our primary measure of achievement' },
 ]
-
-export default function About() {
+ function About() {
   const ref = useRef(null)
 
   useEffect(() => {
@@ -133,3 +132,4 @@ export default function About() {
     </section>
   )
 }
+export default About;
