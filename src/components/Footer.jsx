@@ -64,22 +64,23 @@ export default function Footer() {
           <div className="col-span-2 lg:col-span-2">
             {/* Logo */}
             <div className="flex items-center gap-3 mb-6">
-              <div className="relative w-10 h-10">
-                <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full">
-                  <circle cx="20" cy="20" r="18" stroke="#C8102E" strokeWidth="2.5"/>
-                  <circle cx="20" cy="20" r="14" stroke="#006B3C" strokeWidth="2"/>
-                  <path d="M14 26 C14 20 20 14 26 14" stroke="#0A2463" strokeWidth="3" strokeLinecap="round"/>
-                  <circle cx="26" cy="14" r="3" fill="#0A2463"/>
-                </svg>
-              </div>
-              <div>
-                <div className="font-display font-900 text-white text-xl leading-none uppercase tracking-tight">
-                  Tubros
-                </div>
-                <div className="font-body text-[10px] text-brand-red uppercase tracking-[0.2em] leading-none">
-                  Hardware Co. Ltd
-                </div>
-              </div>
+             <div className="relative w-12 h-12 rounded-full overflow-hidden border-2 border-brand-red shadow-lg">
+    <img
+      src="/images/img50.jpg" // your logo image
+      alt="Tubros Logo"
+      className="w-full h-full object-cover"
+    />
+  </div>
+
+  {/* Logo text */}
+  <div className="flex flex-col">
+    <div className="font-display font-900 text-white text-xl leading-none uppercase tracking-tight">
+      Tubros
+    </div>
+    <div className="font-body text-[10px] text-brand-red uppercase tracking-[0.2em] leading-none">
+      Hardware Co. Ltd
+    </div>
+  </div>
             </div>
 
             <p className="font-body text-white/40 text-sm leading-relaxed mb-6 max-w-xs">

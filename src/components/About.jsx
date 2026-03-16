@@ -28,15 +28,14 @@ export default function About() {
   }, [])
 
   return (
-    <section id="about" ref={ref} className="relative bg-[#0d0d0d] py-28 overflow-hidden">
+    <section id="about" ref={ref} className="relative bg-white py-28 overflow-hidden">
       {/* Decorative large text */}
-      <div className="absolute top-8 right-0 font-display font-900 text-[14rem] text-white/[0.02] uppercase pointer-events-none select-none leading-none">
+      <div className="absolute top-8 right-0 font-display font-900 text-[14rem] text-gray-300 uppercase pointer-events-none select-none leading-none opacity-10">
         TUBROS
       </div>
 
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-20 items-center">
-          
           {/* Left: Image + accent */}
           <div className="relative reveal-left">
             <div className="relative">
@@ -45,13 +44,13 @@ export default function About() {
                 <img
                   src="/images/img3.jpg"
                   alt="Tubros Hardware Team"
-                  className="w-full h-[500px] object-cover"
+                  className="w-full h-[500px] object-cover rounded-lg"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent rounded-lg" />
               </div>
 
               {/* Accent image */}
-              <div className="absolute -bottom-8 -right-8 w-48 h-48 z-20 border-4 border-brand-red gallery-item">
+              <div className="absolute -bottom-8 -right-8 w-48 h-48 z-20 border-4 border-brand-red gallery-item rounded-lg overflow-hidden">
                 <img
                   src="/images/img7.jpg"
                   alt="Construction Work"
@@ -60,11 +59,11 @@ export default function About() {
               </div>
 
               {/* Red stripe */}
-              <div className="absolute -left-4 top-8 bottom-8 w-1 bg-brand-red" />
+              <div className="absolute -left-4 top-8 bottom-8 w-1 bg-brand-red rounded" />
             </div>
 
             {/* Since tag */}
-            <div className="absolute top-8 left-8 z-20 bg-brand-red px-4 py-2">
+            <div className="absolute top-8 left-8 z-20 bg-brand-red px-4 py-2 rounded">
               <span className="font-display font-900 text-white text-sm uppercase tracking-widest">
                 Since 2019
               </span>
@@ -80,30 +79,30 @@ export default function About() {
                   Who We Are
                 </span>
               </div>
-              <h2 className="font-display font-900 text-5xl md:text-6xl uppercase leading-[0.95] text-white mb-6">
+              <h2 className="font-display font-900 text-5xl md:text-6xl uppercase leading-[0.95] text-gray-900 mb-6">
                 Building Uganda's <span className="text-brand-red">Future</span>
               </h2>
-              <p className="font-body text-white/60 text-base leading-relaxed mb-4">
+              <p className="font-body text-gray-700 text-base leading-relaxed mb-4">
                 Tubros Hardware Company Limited is a Ugandan privately owned B2B, B2C & BCG company, incorporated in 2019. We specialize in construction support services and supply high-quality engineering products across Uganda and the region.
               </p>
-              <p className="font-body text-white/60 text-base leading-relaxed">
+              <p className="font-body text-gray-700 text-base leading-relaxed">
                 Our ideology from day one: quality services and products don't have to be expensive. That philosophy has earned us the trust of hundreds of satisfied clients who rely on our affordable, reliable products and services.
               </p>
             </div>
 
             {/* Mission + Vision */}
             <div className="reveal grid grid-cols-2 gap-4">
-              <div className="card-dark p-5">
+              <div className="card-dark p-5 bg-gray-100 rounded-lg">
                 <div className="w-8 h-0.5 bg-brand-green mb-3" />
-                <div className="font-display font-700 text-white text-sm uppercase tracking-widest mb-2">Vision</div>
-                <div className="font-body text-white/50 text-sm leading-relaxed">
+                <div className="font-display font-700 text-gray-900 text-sm uppercase tracking-widest mb-2">Vision</div>
+                <div className="font-body text-gray-700 text-sm leading-relaxed">
                   To be the leading company in quality, affordable construction support services and engineering solutions.
                 </div>
               </div>
-              <div className="card-dark p-5">
+              <div className="card-dark p-5 bg-gray-100 rounded-lg">
                 <div className="w-8 h-0.5 bg-brand-orange mb-3" />
-                <div className="font-display font-700 text-white text-sm uppercase tracking-widest mb-2">Mission</div>
-                <div className="font-body text-white/50 text-sm leading-relaxed">
+                <div className="font-display font-700 text-gray-900 text-sm uppercase tracking-widest mb-2">Mission</div>
+                <div className="font-body text-gray-700 text-sm leading-relaxed">
                   To offer the highest quality products and services that meet the technological demands of our customers.
                 </div>
               </div>
@@ -111,16 +110,16 @@ export default function About() {
 
             {/* Core Values */}
             <div className="reveal">
-              <div className="font-display font-700 text-white/30 text-xs uppercase tracking-[0.3em] mb-4">Core Values</div>
+              <div className="font-display font-700 text-gray-500 text-xs uppercase tracking-[0.3em] mb-4">Core Values</div>
               <div className="grid grid-cols-2 gap-3">
                 {values.map((val) => (
                   <div key={val.title} className="flex items-start gap-3 group">
                     <span className="text-xl mt-0.5">{val.icon}</span>
                     <div>
-                      <div className="font-display font-700 text-white text-sm uppercase tracking-wide group-hover:text-brand-red transition-colors">
+                      <div className="font-display font-700 text-gray-900 text-sm uppercase tracking-wide group-hover:text-brand-red transition-colors">
                         {val.title}
                       </div>
-                      <div className="font-body text-white/40 text-xs leading-relaxed">
+                      <div className="font-body text-gray-700 text-xs leading-relaxed">
                         {val.desc}
                       </div>
                     </div>

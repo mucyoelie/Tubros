@@ -4,7 +4,6 @@ const allImages = Array.from({ length: 49 }, (_, i) => `/images/img${i + 1}.jpg`
 
 const filters = ['All', 'Waterproofing', 'Ceilings', 'Partitions', 'Renovation', 'Products']
 
-// Distribute images to categories
 const categoryMap = {
   'All': allImages,
   'Waterproofing': allImages.slice(0, 10),
@@ -39,7 +38,6 @@ export default function Gallery() {
     return () => observer.disconnect()
   }, [])
 
-  // Keyboard nav for lightbox
   useEffect(() => {
     const onKey = (e) => {
       if (!lightbox) return
@@ -54,7 +52,7 @@ export default function Gallery() {
   }, [lightbox, active])
 
   return (
-    <section id="gallery" ref={ref} className="bg-[#080808] py-28 overflow-hidden">
+    <section id="gallery" ref={ref} className="bg-white py-28 overflow-hidden">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
 
         {/* Header */}
@@ -66,8 +64,8 @@ export default function Gallery() {
                 Our Work
               </span>
             </div>
-            <h2 className="font-display font-900 text-5xl md:text-7xl uppercase leading-[0.95] text-white">
-              Project <span className="text-stroke">Gallery</span>
+            <h2 className="font-display font-900 text-5xl md:text-7xl uppercase leading-[0.95] text-gray-900">
+              Project <span className="text-stroke text-brand-orange">Gallery</span>
             </h2>
           </div>
         </div>
@@ -78,10 +76,10 @@ export default function Gallery() {
             <button
               key={f}
               onClick={() => { setActive(f); setVisible(12) }}
-              className={`px-5 py-2 font-display font-700 text-xs uppercase tracking-widest transition-all duration-200 ${
+              className={`px-5 py-2 font-display font-700 text-xs uppercase tracking-widest transition-all duration-200 border rounded ${
                 active === f
-                  ? 'bg-white text-black'
-                  : 'text-white/50 border border-white/20 hover:text-white hover:border-white/60'
+                  ? 'bg-brand-orange text-white border-brand-orange'
+                  : 'text-gray-700 border-gray-300 hover:text-gray-900 hover:border-gray-400'
               }`}
             >
               {f}
@@ -100,10 +98,10 @@ export default function Gallery() {
               <img
                 src={img}
                 alt={`Project ${i + 1}`}
-                className="w-full object-cover"
+                className="w-full object-cover rounded-lg"
                 loading="lazy"
               />
-              <div className="absolute inset-0 bg-black/0 group-hover:bg-black/40 transition-all duration-300 flex items-center justify-center">
+              <div className="absolute inset-0 bg-white/0 group-hover:bg-black/30 transition-all duration-300 flex items-center justify-center rounded-lg">
                 <svg
                   width="32" height="32" viewBox="0 0 32 32" fill="none"
                   className="opacity-0 group-hover:opacity-100 transition-opacity duration-300"
@@ -121,7 +119,7 @@ export default function Gallery() {
           <div className="text-center mt-12">
             <button
               onClick={() => setVisible(v => v + 12)}
-              className="btn-outline"
+              className="px-6 py-3 border border-gray-300 rounded hover:bg-gray-100 font-display font-700 text-gray-900 transition-all"
             >
               Load More Photos
             </button>
@@ -136,7 +134,7 @@ export default function Gallery() {
           onClick={() => setLightbox(null)}
         >
           <button
-            className="absolute top-6 right-6 text-white/60 hover:text-white font-display font-700 text-sm uppercase tracking-widest"
+            className="absolute top-6 right-6 text-white/80 hover:text-white font-display font-700 text-sm uppercase tracking-widest"
             onClick={() => setLightbox(null)}
           >
             Close ✕
@@ -145,7 +143,7 @@ export default function Gallery() {
           <img
             src={lightbox}
             alt="Gallery"
-            className="max-w-full max-h-[85vh] object-contain"
+            className="max-w-full max-h-[85vh] object-contain rounded"
             onClick={(e) => e.stopPropagation()}
           />
 

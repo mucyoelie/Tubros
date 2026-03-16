@@ -79,7 +79,7 @@ export default function Services() {
   }, [])
 
   return (
-    <section id="services" ref={ref} className="bg-[#080808] py-28 overflow-hidden">
+    <section id="services" ref={ref} className="bg-white py-28 overflow-hidden">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
 
         {/* Header */}
@@ -91,39 +91,39 @@ export default function Services() {
                 What We Do
               </span>
             </div>
-            <h2 className="font-display font-900 text-5xl md:text-7xl uppercase leading-[0.95] text-white">
-              Our <span className="text-stroke">Services</span>
+            <h2 className="font-display font-900 text-5xl md:text-7xl uppercase leading-[0.95] text-gray-900">
+              Our <span className="text-stroke text-brand-red">Services</span>
             </h2>
           </div>
-          <p className="reveal font-body text-white/40 max-w-xs text-sm leading-relaxed md:text-right">
+          <p className="reveal font-body text-gray-700 max-w-xs text-sm leading-relaxed md:text-right">
             End-to-end construction support services delivered by experienced professionals.
           </p>
         </div>
 
         {/* Services Grid + Detail Panel */}
-        <div className="grid lg:grid-cols-5 gap-0 border border-white/10">
-          
+        <div className="grid lg:grid-cols-5 gap-0 border border-gray-200">
+
           {/* Service list */}
-          <div className="lg:col-span-2 border-r border-white/10">
+          <div className="lg:col-span-2 border-r border-gray-200">
             {services.map((svc) => (
               <button
                 key={svc.id}
                 onClick={() => setActiveService(svc)}
-                className={`reveal w-full text-left px-6 py-5 border-b border-white/10 flex items-center justify-between group transition-all duration-200 ${
+                className={`reveal w-full text-left px-6 py-5 border-b border-gray-200 flex items-center justify-between group transition-all duration-200 ${
                   activeService.id === svc.id
-                    ? 'bg-white/5'
-                    : 'hover:bg-white/[0.02]'
+                    ? 'bg-gray-100'
+                    : 'hover:bg-gray-50'
                 }`}
               >
                 <div className="flex items-center gap-4">
                   <span
                     className="font-display font-900 text-3xl"
-                    style={{ color: activeService.id === svc.id ? svc.accent : 'rgba(255,255,255,0.15)' }}
+                    style={{ color: activeService.id === svc.id ? svc.accent : 'rgba(0,0,0,0.15)' }}
                   >
                     {svc.number}
                   </span>
                   <span className={`font-display font-700 text-base uppercase tracking-wide transition-colors ${
-                    activeService.id === svc.id ? 'text-white' : 'text-white/50 group-hover:text-white/80'
+                    activeService.id === svc.id ? 'text-gray-900' : 'text-gray-600 group-hover:text-gray-800'
                   }`}>
                     {svc.title}
                   </span>
@@ -132,7 +132,7 @@ export default function Services() {
                   width="16" height="16" viewBox="0 0 16 16" fill="none"
                   className={`transition-all duration-200 flex-shrink-0 ${activeService.id === svc.id ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-2'}`}
                 >
-                  <path d="M3 8h10M9 4l4 4-4 4" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                  <path d="M3 8h10M9 4l4 4-4 4" stroke="black" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
                 </svg>
               </button>
             ))}
@@ -148,7 +148,7 @@ export default function Services() {
               className="absolute inset-0 w-full h-full object-cover transition-opacity duration-500"
               style={{ opacity: 0.25, filter: 'grayscale(60%)' }}
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-black via-black/80 to-black/40" />
+            <div className="absolute inset-0 bg-gradient-to-t from-white/95 via-white/70 to-white/50" />
 
             {/* Content */}
             <div className="relative z-10 p-8 md:p-10 flex flex-col h-full justify-end">
@@ -156,21 +156,21 @@ export default function Services() {
                 className="w-12 h-1 mb-6"
                 style={{ backgroundColor: activeService.accent }}
               />
-              <h3 className="font-display font-900 text-4xl md:text-5xl uppercase text-white mb-4 leading-tight">
+              <h3 className="font-display font-900 text-4xl md:text-5xl uppercase text-gray-900 mb-4 leading-tight">
                 {activeService.title}
               </h3>
-              <p className="font-body text-white/60 text-sm leading-relaxed mb-6 max-w-md">
+              <p className="font-body text-gray-700 text-sm leading-relaxed mb-6 max-w-md">
                 {activeService.desc}
               </p>
               <div>
-                <div className="font-display font-700 text-white/30 text-xs uppercase tracking-[0.3em] mb-3">
+                <div className="font-display font-700 text-gray-500 text-xs uppercase tracking-[0.3em] mb-3">
                   Applications
                 </div>
                 <div className="flex flex-wrap gap-2">
                   {activeService.applications.map((app) => (
                     <span
                       key={app}
-                      className="font-body text-xs text-white/70 border border-white/20 px-3 py-1.5 hover:border-white/50 transition-colors"
+                      className="font-body text-xs text-gray-700 border border-gray-300 px-3 py-1.5 hover:border-gray-500 transition-colors"
                     >
                       {app}
                     </span>
@@ -179,6 +179,7 @@ export default function Services() {
               </div>
             </div>
           </div>
+
         </div>
       </div>
     </section>

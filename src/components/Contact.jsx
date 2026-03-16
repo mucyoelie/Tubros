@@ -82,17 +82,7 @@ export default function Contact() {
   }, [])
 
   return (
-    <section id="contact" ref={ref} className="relative bg-[#050505] py-28 overflow-hidden">
-      {/* Background accent */}
-      <div className="absolute top-0 left-0 w-px h-full bg-gradient-to-b from-transparent via-brand-red/30 to-transparent" />
-      <div
-        className="absolute inset-0 opacity-5"
-        style={{
-          backgroundImage: 'linear-gradient(#fff 1px, transparent 1px), linear-gradient(90deg, #fff 1px, transparent 1px)',
-          backgroundSize: '80px 80px',
-        }}
-      />
-
+    <section id="contact" ref={ref} className="relative bg-white py-28 overflow-hidden">
       <div className="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
 
         {/* Header */}
@@ -104,16 +94,16 @@ export default function Contact() {
             </span>
             <div className="w-8 h-0.5 bg-brand-red" />
           </div>
-          <h2 className="reveal font-display font-900 text-5xl md:text-7xl uppercase leading-[0.95] text-white mb-4">
-            Let's <span className="text-stroke">Work</span> Together
+          <h2 className="reveal font-display font-900 text-5xl md:text-7xl uppercase leading-[0.95] text-gray-900 mb-4">
+            Let's <span className="text-stroke text-brand-red">Work</span> Together
           </h2>
-          <p className="reveal font-body text-white/40 max-w-lg mx-auto text-sm leading-relaxed">
+          <p className="reveal font-body text-gray-700 max-w-lg mx-auto text-sm leading-relaxed">
             Ready to start your project? Get in touch with us for a free consultation and competitive quote.
           </p>
         </div>
 
         <div className="grid lg:grid-cols-5 gap-12">
-          
+
           {/* Left: Contact info */}
           <div className="lg:col-span-2 space-y-6">
             {contactInfo.map((info) => (
@@ -125,10 +115,10 @@ export default function Contact() {
                   {info.icon}
                 </div>
                 <div>
-                  <div className="font-display font-700 text-xs uppercase tracking-[0.2em] text-white/30 mb-1">
+                  <div className="font-display font-700 text-xs uppercase tracking-[0.2em] text-gray-500 mb-1">
                     {info.label}
                   </div>
-                  <div className="font-body text-white/70 text-sm leading-relaxed whitespace-pre-line">
+                  <div className="font-body text-gray-700 text-sm leading-relaxed whitespace-pre-line">
                     {info.value}
                   </div>
                 </div>
@@ -136,8 +126,8 @@ export default function Contact() {
             ))}
 
             {/* Social links */}
-            <div className="reveal pt-4 border-t border-white/10">
-              <div className="font-display font-700 text-xs uppercase tracking-[0.2em] text-white/30 mb-4">
+            <div className="reveal pt-4 border-t border-gray-200/30">
+              <div className="font-display font-700 text-xs uppercase tracking-[0.2em] text-gray-500 mb-4">
                 Follow Us
               </div>
               <div className="flex gap-3">
@@ -145,7 +135,7 @@ export default function Contact() {
                   <a
                     key={platform}
                     href="#"
-                    className="w-10 h-10 border border-white/20 flex items-center justify-center text-white/40 hover:border-brand-red hover:text-brand-red transition-all duration-200 font-display font-700 text-xs uppercase"
+                    className="w-10 h-10 border border-gray-300 flex items-center justify-center text-gray-500 hover:border-brand-red hover:text-brand-red transition-all duration-200 font-display font-700 text-xs uppercase"
                   >
                     {platform[0]}
                   </a>
@@ -161,7 +151,7 @@ export default function Contact() {
                   Quick Response
                 </span>
               </div>
-              <p className="font-body text-white/50 text-xs leading-relaxed">
+              <p className="font-body text-gray-600 text-xs leading-relaxed">
                 We typically respond to all enquiries within 2–4 business hours.
               </p>
             </div>
@@ -178,47 +168,47 @@ export default function Contact() {
             >
               <div className="reveal grid grid-cols-2 gap-4">
                 <div>
-                  <label className="font-display font-700 text-xs uppercase tracking-widest text-white/30 block mb-2">
+                  <label className="font-display font-700 text-xs uppercase tracking-widest text-gray-500 block mb-2">
                     Full Name *
                   </label>
                   <input
                     type="text"
                     required
                     placeholder="John Doe"
-                    className="w-full bg-white/[0.04] border border-white/10 text-white px-4 py-3.5 font-body text-sm placeholder:text-white/20 focus:outline-none focus:border-brand-red transition-colors"
+                    className="w-full bg-gray-50 border border-gray-300 text-gray-900 px-4 py-3.5 font-body text-sm placeholder:text-gray-400 focus:outline-none focus:border-brand-red transition-colors"
                   />
                 </div>
                 <div>
-                  <label className="font-display font-700 text-xs uppercase tracking-widest text-white/30 block mb-2">
+                  <label className="font-display font-700 text-xs uppercase tracking-widest text-gray-500 block mb-2">
                     Phone Number
                   </label>
                   <input
                     type="tel"
                     placeholder="+256 700 000 000"
-                    className="w-full bg-white/[0.04] border border-white/10 text-white px-4 py-3.5 font-body text-sm placeholder:text-white/20 focus:outline-none focus:border-brand-red transition-colors"
+                    className="w-full bg-gray-50 border border-gray-300 text-gray-900 px-4 py-3.5 font-body text-sm placeholder:text-gray-400 focus:outline-none focus:border-brand-red transition-colors"
                   />
                 </div>
               </div>
 
               <div className="reveal">
-                <label className="font-display font-700 text-xs uppercase tracking-widest text-white/30 block mb-2">
+                <label className="font-display font-700 text-xs uppercase tracking-widest text-gray-500 block mb-2">
                   Email Address *
                 </label>
                 <input
                   type="email"
                   required
                   placeholder="your@email.com"
-                  className="w-full bg-white/[0.04] border border-white/10 text-white px-4 py-3.5 font-body text-sm placeholder:text-white/20 focus:outline-none focus:border-brand-red transition-colors"
+                  className="w-full bg-gray-50 border border-gray-300 text-gray-900 px-4 py-3.5 font-body text-sm placeholder:text-gray-400 focus:outline-none focus:border-brand-red transition-colors"
                 />
               </div>
 
               <div className="reveal">
-                <label className="font-display font-700 text-xs uppercase tracking-widest text-white/30 block mb-2">
+                <label className="font-display font-700 text-xs uppercase tracking-widest text-gray-500 block mb-2">
                   Service / Product Needed *
                 </label>
                 <select
                   required
-                  className="w-full bg-[#111] border border-white/10 text-white/60 px-4 py-3.5 font-body text-sm focus:outline-none focus:border-brand-red transition-colors appearance-none cursor-pointer"
+                  className="w-full bg-gray-50 border border-gray-300 text-gray-900 px-4 py-3.5 font-body text-sm focus:outline-none focus:border-brand-red transition-colors cursor-pointer"
                 >
                   <option value="">Select a service or product</option>
                   {services.map((s) => (
@@ -228,19 +218,19 @@ export default function Contact() {
               </div>
 
               <div className="reveal">
-                <label className="font-display font-700 text-xs uppercase tracking-widest text-white/30 block mb-2">
+                <label className="font-display font-700 text-xs uppercase tracking-widest text-gray-500 block mb-2">
                   Project Details
                 </label>
                 <textarea
                   rows={5}
                   placeholder="Describe your project, requirements, quantities, timeline..."
-                  className="w-full bg-white/[0.04] border border-white/10 text-white px-4 py-3.5 font-body text-sm placeholder:text-white/20 focus:outline-none focus:border-brand-red transition-colors resize-none"
+                  className="w-full bg-gray-50 border border-gray-300 text-gray-900 px-4 py-3.5 font-body text-sm placeholder:text-gray-400 focus:outline-none focus:border-brand-red transition-colors resize-none"
                 />
               </div>
 
               <div className="reveal flex items-start gap-3">
                 <input type="checkbox" id="agree" className="mt-1 accent-brand-red" />
-                <label htmlFor="agree" className="font-body text-xs text-white/40 leading-relaxed">
+                <label htmlFor="agree" className="font-body text-xs text-gray-600 leading-relaxed">
                   I agree to be contacted by Tubros Hardware regarding my enquiry. My information will not be shared with third parties.
                 </label>
               </div>
@@ -258,6 +248,7 @@ export default function Contact() {
               </div>
             </form>
           </div>
+
         </div>
       </div>
     </section>

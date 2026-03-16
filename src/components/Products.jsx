@@ -104,7 +104,7 @@ export default function Products() {
   }
 
   return (
-    <section id="products" ref={ref} className="bg-[#0d0d0d] py-28 overflow-hidden">
+    <section id="products" ref={ref} className="bg-white py-28 overflow-hidden">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
 
         {/* Header */}
@@ -116,12 +116,12 @@ export default function Products() {
                 What We Supply
               </span>
             </div>
-            <h2 className="font-display font-900 text-5xl md:text-7xl uppercase leading-[0.95] text-white">
-              Our <span className="text-stroke">Products</span>
+            <h2 className="font-display font-900 text-5xl md:text-7xl uppercase leading-[0.95] text-gray-900">
+              Our <span className="text-stroke text-brand-green">Products</span>
             </h2>
           </div>
           <div className="reveal flex items-end">
-            <p className="font-body text-white/40 text-sm leading-relaxed">
+            <p className="font-body text-gray-700 text-sm leading-relaxed">
               We source and supply products to client specifications. From engineering hand tools to specialized construction chemicals — all at competitive prices with guaranteed quality.
             </p>
           </div>
@@ -136,7 +136,7 @@ export default function Products() {
               className={`flex items-center gap-2 px-4 py-2.5 font-display font-700 text-xs uppercase tracking-widest transition-all duration-200 border ${
                 activeCategory.id === cat.id
                   ? 'bg-brand-red border-brand-red text-white'
-                  : 'bg-transparent border-white/20 text-white/50 hover:border-white/50 hover:text-white/80'
+                  : 'bg-transparent border-gray-300 text-gray-600 hover:border-gray-400 hover:text-gray-800'
               }`}
             >
               <span>{cat.icon}</span>
@@ -151,17 +151,17 @@ export default function Products() {
           {/* Image panel */}
           <div className="lg:col-span-2 space-y-3">
             {/* Main image */}
-            <div className="reveal relative h-64 overflow-hidden">
+            <div className="reveal relative h-64 overflow-hidden rounded-lg">
               {activeCategory.images.map((img, i) => (
                 <img
                   key={img}
                   src={img}
                   alt={activeCategory.label}
-                  className="absolute inset-0 w-full h-full object-cover transition-opacity duration-700"
+                  className="absolute inset-0 w-full h-full object-cover transition-opacity duration-700 rounded-lg"
                   style={{ opacity: activeImg === i ? 1 : 0 }}
                 />
               ))}
-              <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-t from-white/90 via-white/70 to-white/50 rounded-lg" />
               
               {/* Dot indicators */}
               <div className="absolute bottom-3 left-3 flex gap-1.5">
@@ -170,7 +170,7 @@ export default function Products() {
                     key={i}
                     onClick={() => setActiveImg(i)}
                     className={`w-1.5 h-1.5 rounded-full transition-all ${
-                      activeImg === i ? 'bg-white w-4' : 'bg-white/40'
+                      activeImg === i ? 'bg-brand-red w-4' : 'bg-gray-400'
                     }`}
                   />
                 ))}
@@ -183,21 +183,21 @@ export default function Products() {
                 <button
                   key={img}
                   onClick={() => setActiveImg(i)}
-                  className={`relative h-20 overflow-hidden gallery-item border-2 transition-all ${
-                    activeImg === i ? 'border-brand-red' : 'border-transparent opacity-60 hover:opacity-100'
+                  className={`relative h-20 overflow-hidden border-2 transition-all rounded-lg ${
+                    activeImg === i ? 'border-brand-red' : 'border-gray-300 opacity-60 hover:opacity-100'
                   }`}
                 >
-                  <img src={img} alt="" className="w-full h-full object-cover" />
+                  <img src={img} alt="" className="w-full h-full object-cover rounded-lg" />
                 </button>
               ))}
             </div>
 
             {/* Category description box */}
-            <div className="reveal card-dark p-5">
-              <div className="font-display font-700 text-white text-sm uppercase tracking-wide mb-2">
+            <div className="reveal p-5 border border-gray-200 rounded-lg">
+              <div className="font-display font-700 text-gray-900 text-sm uppercase tracking-wide mb-2">
                 {activeCategory.icon} {activeCategory.label}
               </div>
-              <div className="font-body text-white/40 text-xs leading-relaxed">
+              <div className="font-body text-gray-700 text-xs leading-relaxed">
                 All products sourced to client specifications. Genuine brands. Competitive pricing. Fast delivery across Uganda.
               </div>
             </div>
@@ -209,10 +209,10 @@ export default function Products() {
               {activeCategory.items.map((item, i) => (
                 <div
                   key={item}
-                  className="group flex items-center gap-2 px-3 py-2.5 border border-white/10 hover:border-brand-red/50 hover:bg-brand-red/5 transition-all duration-200 cursor-default"
+                  className="group flex items-center gap-2 px-3 py-2.5 border border-gray-200 hover:border-brand-red/50 hover:bg-brand-red/10 transition-all duration-200 cursor-default rounded"
                 >
                   <div className="w-1 h-1 bg-brand-red flex-shrink-0 group-hover:scale-150 transition-transform" />
-                  <span className="font-body text-xs text-white/60 group-hover:text-white/90 transition-colors leading-tight">
+                  <span className="font-body text-xs text-gray-700 group-hover:text-gray-900 transition-colors leading-tight">
                     {item}
                   </span>
                 </div>
@@ -220,11 +220,11 @@ export default function Products() {
             </div>
 
             {/* CTA */}
-            <div className="reveal mt-8 p-6 border border-brand-red/30 bg-brand-red/5">
-              <div className="font-display font-700 text-white text-lg uppercase tracking-wide mb-2">
+            <div className="reveal mt-8 p-6 border border-brand-red/30 bg-brand-red/5 rounded">
+              <div className="font-display font-700 text-gray-900 text-lg uppercase tracking-wide mb-2">
                 Don't see what you need?
               </div>
-              <p className="font-body text-white/50 text-sm mb-4">
+              <p className="font-body text-gray-700 text-sm mb-4">
                 We source products to your exact specifications. Contact us with your requirements.
               </p>
               <a href="#contact" className="btn-primary text-sm px-6 py-3">
